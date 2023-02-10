@@ -20,6 +20,14 @@ def log(source: str, info: str):
 async def on_ready():
     log("DiscordBot", f"Logged in as {client.user}")
 
+
+###############################
+# TOPICS COMMAND              #
+#  - {prefix}topic            #
+#  - prints a conversation    #
+#    starter or topic         #
+###############################
+
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -29,5 +37,8 @@ async def on_message(message):
 
         log("Topics", f"Topic selected from array: {randomTopic}")
         await message.channel.send(f'{randomTopic}')
+
+###############################
+
 
 client.run(os.environ.get('DISCORD_BOT_TOKEN'))
