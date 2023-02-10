@@ -1,24 +1,20 @@
 # MESSAGE_CONTENT intent required
 
 import discord
-import os
 import random
 
 import modules.topics as topics
 
-intents = discord.Intents.default()
-intents.message_content = True
-
+intents = discord.Intents(messages=True)
 client = discord.Client(intents=intents)
 
 prefix = "-"
 version = "0.1.0"     # do not change
 
 print(f"###############################")
-print(f"# engineer v{version}         #")
+print(f"# engineer v{version}             #")
 print(f"# authored by sudokoko        #")
-print(f"###############################")
-print(f"\n")
+print(f"###############################\n")
 
 clientToken = input("<Engineer> [DiscordBot:Main] Please specify the API token for the bot or press ENTER to use ENV: ")
 
@@ -50,4 +46,4 @@ async def on_message(message):
 ###############################
 
 
-client.run(clientToken or os.environ.get('DISCORD_BOT_TOKEN'))
+client.run(clientToken)
