@@ -12,6 +12,15 @@ intents.message_content = True
 client = discord.Client(intents=intents)
 
 prefix = "-"
+version = "0.1.0"     # do not change
+
+print(f"###############################")
+print(f"# engineer v{version}         #")
+print(f"# authored by sudokoko        #")
+print(f"###############################")
+print(f"\n")
+
+clientToken = input("<Engineer> [DiscordBot:Main] Please specify the API token for the bot or press ENTER to use ENV: ")
 
 def log(source: str, info: str):
     print(f'<Engineer> [{source}:Main] {info}')
@@ -41,4 +50,4 @@ async def on_message(message):
 ###############################
 
 
-client.run(os.environ.get('DISCORD_BOT_TOKEN'))
+client.run(clientToken or os.environ.get('DISCORD_BOT_TOKEN'))
